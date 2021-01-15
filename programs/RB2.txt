@@ -1,7 +1,7 @@
 procedure main()
 {
 var
-	byte i,j
+	byte i,j,k
 	byte R[8], G[8], B[8]
 	bool finish
 evar
@@ -36,15 +36,18 @@ evar
 	R[7] = 143
 	G[7] = 0
 	B[7] = 255
-  	j = 0
-
+	
+	j = 0
 	finish = 1
 	while(finish)
-		for(i, 4, 7)
-			ccopy(i, i - 4)
-		efor
-		for(i, 0, 4)
-			cset(i, R[j], G[j], B[j])
+		for(k, 0, 3)
+			for(i, 0, 6)
+				ccopy(7 - i, 6 - i)
+			efor
+			ccopyall(8)
+			draw
+			pause(100)
+			cset(0, R[j], G[j], B[j])
 		efor
 		if(j, =, 7)
 			j = 0

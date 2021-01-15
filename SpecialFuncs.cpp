@@ -302,11 +302,13 @@ pair<uint16_t, uint16_t> process_elses_r(
 			iter += res.first-1;
 			continue;
 		}
-		count += iter->args.size();
+		//count += iter->args.size();
+		count += iter->args.args_size();
 		++count_cmd;
 	}
 	count_cmd += 1;
-	count += beg->args.size();
+	//count += beg->args.size();
+	count += beg->args.args_size();
 	count += count_cmd;
 	return { count_cmd,count };
 }
@@ -343,11 +345,13 @@ pair<uint16_t, uint16_t> process_ifs_r(
 			}
 			break;
 		}
-		count += iter->args.size();
+		//count += iter->args.size();
+		count += iter->args.args_size();
 		++count_cmd;
 	}
 	count_cmd += 1;
-	count += beg->args.size();
+	//count += beg->args.size();
+	count += beg->args.args_size();
 	count += count_cmd;
 	return { count_cmd,count };
 }

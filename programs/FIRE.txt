@@ -53,6 +53,6 @@ var
 evar
  finish = 1
 while(finish)
- fire
+ fire()
 ewhile
 }

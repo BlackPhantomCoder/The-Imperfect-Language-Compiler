@@ -26,6 +26,9 @@ struct args_container : public std::deque<arg_info> {
 		insert(std::end(*this), std::begin(rh), std::end(rh));
 		return *this;
 	}
+	//size_t size() = delete;
+
+	size_t args_size()const;
 };
 
 //command string (with args) with line
