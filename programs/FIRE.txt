@@ -1,0 +1,58 @@
+procedure fire()
+{
+var 
+ byte R[8], G[8]
+evar
+ random(R[7], 0, 255)
+ random(R[7], 0, R[7])
+ random(R[7], 0, R[7])
+ random(R[7], 0, R[7])
+
+ random(R[6], 0, 255)
+ random(R[6], 0, R[6])
+ random(R[6], 0, R[6])
+
+ random(R[5], 0, 255)
+ random(R[5], 0, R[5])
+
+ random(R[4], 0, R[5])
+ random(R[4], 0, R[4])
+
+ random(R[3], R[4], 255)
+ random(R[2], R[3], 255)
+ random(R[1], R[2], 255)
+ random(R[0], R[1], 255)
+
+ random(G[0], 0, R[0]/16)
+ random(G[1], 0, R[1]/8)
+ random(G[2], 0, R[2]/4)
+ random(G[3], 0, R[3]/2)
+ random(G[4], 0, R[4])
+ random(G[5], 0, R[5])
+ random(G[6], 0, R[6])
+ random(G[7], 0, R[7])
+
+ cset(0, R[0], G[0], 0)
+ cset(1, R[1], G[1], 0)
+ cset(2, R[2], G[2], 0)
+ cset(3, R[3], G[3], 0)
+ cset(4, R[4], G[4], 0)
+ cset(5, R[5], G[5], 0)
+ cset(6, R[6], G[6], 0)
+ cset(7, R[7], G[7], 0)
+
+ ccopyall(8)
+ draw
+ pause(50)
+}
+
+procedure main()
+{
+var
+ bool finish
+evar
+ finish = 1
+while(finish)
+ fire
+ewhile
+}
