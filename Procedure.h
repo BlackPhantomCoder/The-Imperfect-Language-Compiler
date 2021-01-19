@@ -43,6 +43,7 @@ public:
 	const args_container& args_types()const { return t_args_types; }
 	//
 	const size_t id()const { return t_id; }
+	bool operator<(const PreProcedureStepTwo& rh);
 private:
 	args_container t_args_types;
 	size_t t_id;
@@ -62,6 +63,7 @@ public:
 	size_t get_size() const;
 	//
 	const size_t id()const { return t_id; }
+	bool operator<(const Procedure& rh);
 private:
 	std::vector<cmd_and_args> t_args_types;
 	size_t t_id;

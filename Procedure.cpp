@@ -31,6 +31,11 @@ PreProcedureStepTwo::PreProcedureStepTwo(
 	t_id(id)
 	{}
 
+bool PreProcedureStepTwo::operator<(const PreProcedureStepTwo & rh)
+{
+	return t_id < rh.t_id;
+}
+
 Procedure::Procedure(
 	const ListProgram & program,
 	const std::vector<cmd_and_args> & args_types,
@@ -58,4 +63,9 @@ size_t Procedure::get_size() const
 		result += arg_size;*/
 	}
 	return result;
+}
+
+bool Procedure::operator<(const Procedure& rh)
+{
+	return t_id < rh.t_id;
 }

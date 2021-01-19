@@ -107,7 +107,7 @@ vector<cmd_and_args> process_vars_and_call_args(PreProcedureStepTwo& p) {
 	return args;
 }
 
-Procedure compile_procedure(PreProcedureStepTwo p, vector<cmd_and_args> args) {
+Procedure compile_procedure(PreProcedureStepTwo p, const vector<cmd_and_args>& args) {
 	p.program.push_back({ command::end_procedure, deque<arg_info>{ {"",true, false}}, 0 });
 	process_args(p.program, cmd_codes, arg_process);
 	process_sizes(p.program);
@@ -115,18 +115,17 @@ Procedure compile_procedure(PreProcedureStepTwo p, vector<cmd_and_args> args) {
 	return { p.program, args , p.id() };
 }
 
-ListProgram gen_procedure_table(vector<Procedure>& procedures) {
+ListProgram gen_procedure_table(const map<size_t,Procedure>& procedures) {
 	ListProgram result{ {command::procedure, {}, 0} };
 	result.back().args.push_back({ num_to_str(procedures.size()), true, true });
 
 	uint16_t offset = 0u;
 	size_t id = 0;
-	static auto find_by_id = [&procedures](size_t id) {
-		return find_if(begin(procedures), end(procedures), [id](const Procedure& rh) { return rh.id() == id; });
-	};
+	//static auto find_by_id = [&procedures](size_t id) {
+	//	return find_if(begin(procedures), end(procedures), [id](const pair<size_t,Procedure>& rh) { return rh.id() == id; });
+	//};
 
-	for (auto i = find_by_id(id); i != end(procedures); i = find_by_id(++id)) {
-		auto& procedure = *i;
+	for (auto& [id, procedure] : procedures) {
 		result.back().args.push_back({ num_to_str(procedure.args_types().size()), true, true });
 		result.back().args.push_back({ num_to_str(offset) , true, true });
 

@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <deque>
+#include <map>
 
 #include "Procedure.h"
 #include "Program.h"
@@ -20,6 +21,6 @@ std::deque<arg_info> gen_procedure_call_args(const std::vector<cmd_and_args>& ar
 //processing call vars/ vars
 std::vector<cmd_and_args> process_vars_and_call_args(PreProcedureStepTwo& p);
 //PreProcedureStepTwo to Procedure with (end_procedure, processing arguments, processing argument sizes, processing if/else contruction)
-Procedure compile_procedure(PreProcedureStepTwo p, std::vector<cmd_and_args> args);
+Procedure compile_procedure(PreProcedureStepTwo p, const std::vector<cmd_and_args>& args);
 //generating procedure table block
-ListProgram gen_procedure_table(std::vector<Procedure>& procedures);
+ListProgram gen_procedure_table(const std::map<size_t,Procedure>& procedures);

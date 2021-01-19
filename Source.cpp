@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <vector>
 #include <filesystem>
+#include <map>
 
 #include "Types.h"
 #include "ProgramFuncs.h"
@@ -91,7 +92,7 @@ vector<PreProcedureStepOne> step_preprocedures_first(istream& input) {
 }
 
 //searching for main procedure, processing procedure calls
-vector<PreProcedureStepTwo> step_preprocedures_second(vector<PreProcedureStepOne> pre_procedures_one) {
+map<size_t, PreProcedureStepTwo> step_preprocedures_second(vector<PreProcedureStepOne> pre_procedures_one) {
 	auto main_iter = find_if(begin(pre_procedures_one), end(pre_procedures_one),
 		[](const PreProcedureStepOne& rh) { return rh.name() == "main"; });
 
@@ -116,28 +117,27 @@ vector<PreProcedureStepTwo> step_preprocedures_second(vector<PreProcedureStepOne
 		}
 	}
 
-	sort(begin(pre_procedures_one), end(pre_procedures_one),
-		[](const PreProcedureStepOne& lh, const PreProcedureStepOne& rh) { return lh.id < rh.id; });
+	//sort(begin(pre_procedures_one), end(pre_procedures_one),
+	//	[](const PreProcedureStepOne& lh, const PreProcedureStepOne& rh) { return lh.id < rh.id; });
 
-	vector<PreProcedureStepTwo> pre_procedures_two;
+	map<size_t, PreProcedureStepTwo> pre_procedures_two;
 	for (const auto& p : pre_procedures_one) {
-		pre_procedures_two.push_back(next_step(p));
+		pre_procedures_two.insert({ p.id, next_step(p) });
 	}
 	return pre_procedures_two;
 }
 
 //processing procedure args, vars, cmds + cmd's args, if/else construction
-vector<Procedure> step_procedures(vector<PreProcedureStepTwo> pre_procedures_two) {
-	vector<Procedure> procedures;
+map<size_t, Procedure> step_procedures(map<size_t, PreProcedureStepTwo> pre_procedures_two) {
+	map<size_t, Procedure> procedures;
 	vector<vector<cmd_and_args>> args;
-	for (auto& p : pre_procedures_two) {
+	for (auto& [id,p] : pre_procedures_two) {
 		args.push_back(process_vars_and_call_args(p));
 	}
 
 	for (size_t i = 0; i < pre_procedures_two.size(); ++i) {
-		procedures.push_back(compile_procedure(pre_procedures_two[i], args[i]));
+		procedures.insert({ i, compile_procedure(pre_procedures_two.at(i), args[i]) });
 	}
-	//sort(begin(procedures), end(procedures), [](const Procedure& lh, const Procedure& rh) {return lh.id() < rh.id(); });
 	return procedures;
 }
 
@@ -150,7 +150,7 @@ void compile_program(istream& input, ostream& output)
 	auto procedure_table = gen_procedure_table(procedures);
 
 	output_program(procedure_table, output);
-	for (const auto& p : procedures) {
+	for (const auto& [id, p] : procedures) {
 		output_program(p.program, output);
 	}
 }
