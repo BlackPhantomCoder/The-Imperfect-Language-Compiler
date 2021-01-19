@@ -1,13 +1,12 @@
-#include "ProcedureFuncs.h"
+#include "Procedure/ProcedureFuncs.h"
 
 #include <string>
 
-#include "ProgramFuncs.h"
-#include "SpecialFuncs.h"
+#include "Program/ProgramFuncs.h"
+#include "Program/SpecialFuncs.h"
 #include "Exceptions.h"
-#include "TypesFuncs.h"
+#include "Type/TypesFuncs.h"
 #include "Funcs.h"
-
 using namespace std;
 
 PreProcedureStepTwo next_step(PreProcedureStepOne p) {

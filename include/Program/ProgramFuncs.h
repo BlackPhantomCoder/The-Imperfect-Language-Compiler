@@ -10,8 +10,9 @@
 #include <utility>
 #include <list>
 
-#include "Program.h"
-#include "Procedure.h"
+#include "Type/Types.h"
+#include "Program/Program.h"
+#include "Procedure/Procedure.h"
 
 
 //input program

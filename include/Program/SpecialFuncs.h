@@ -6,8 +6,8 @@
 #include <vector>
 #include <utility>
 
-#include "Types.h"
-#include "Program.h"
+#include "Type/Types.h"
+#include "Program/Program.h"
 
 //processing math equations
 void process_equations(PreProgram& program);

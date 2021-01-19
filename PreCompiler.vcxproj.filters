@@ -24,66 +24,63 @@
     <ClCompile Include="Source.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="SpecialFuncs.cpp">
+    <ClCompile Include="src\Funcs.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Yard.cpp">
+    <ClCompile Include="src\Procedure\Procedure.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Procedure\ProcedureFuncs.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Program\Program.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Program\ProgramFuncs.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Program\SpecialFuncs.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Yard\Yard.cpp">
       <Filter>Исходные файлы\Yard</Filter>
     </ClCompile>
-    <ClCompile Include="TypesFuncs.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Procedure.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Exceptions.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Program.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="ProgramFuncs.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Funcs.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="ProcedureFuncs.cpp">
+    <ClCompile Include="src\Type\TypesFuncs.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Types.h">
+    <ClInclude Include="include\Exceptions.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="SpecialFuncs.h">
+    <ClInclude Include="include\Funcs.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Expression.h">
+    <ClInclude Include="include\Yard\Yard.h">
       <Filter>Файлы заголовков\Yard</Filter>
     </ClInclude>
-    <ClInclude Include="Yard.h">
+    <ClInclude Include="include\Yard\Expression.h">
       <Filter>Файлы заголовков\Yard</Filter>
     </ClInclude>
-    <ClInclude Include="Procedure.h">
+    <ClInclude Include="include\Program\Program.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="TypesFuncs.h">
+    <ClInclude Include="include\Procedure\Procedure.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Exceptions.h">
+    <ClInclude Include="include\Procedure\ProcedureFuncs.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Program.h">
+    <ClInclude Include="include\Type\Types.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="ProgramFuncs.h">
+    <ClInclude Include="include\Type\TypesFuncs.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Funcs.h">
+    <ClInclude Include="include\Program\SpecialFuncs.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="ProcedureFuncs.h">
+    <ClInclude Include="include\Program\ProgramFuncs.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

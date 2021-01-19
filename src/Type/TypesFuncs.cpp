@@ -1,6 +1,6 @@
-#include "TypesFuncs.h"
-#include <iostream>
+#include "Type/TypesFuncs.h"
 
+#include <iostream>
 using namespace std;
 
 size_t type_to_cmd_str_size(types type) {

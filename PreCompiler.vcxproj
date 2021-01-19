@@ -89,6 +89,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -104,6 +105,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -141,29 +143,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Exceptions.cpp" />
-    <ClCompile Include="Funcs.cpp" />
-    <ClCompile Include="ProcedureFuncs.cpp" />
-    <ClCompile Include="ProgramFuncs.cpp" />
-    <ClCompile Include="Procedure.cpp" />
-    <ClCompile Include="Program.cpp" />
+    <ClCompile Include="src\Funcs.cpp" />
+    <ClCompile Include="src\Procedure\ProcedureFuncs.cpp" />
+    <ClCompile Include="src\Program\ProgramFuncs.cpp" />
+    <ClCompile Include="src\Procedure\Procedure.cpp" />
+    <ClCompile Include="src\Program\Program.cpp" />
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="SpecialFuncs.cpp" />
-    <ClCompile Include="TypesFuncs.cpp" />
-    <ClCompile Include="Yard.cpp" />
+    <ClCompile Include="src\Program\SpecialFuncs.cpp" />
+    <ClCompile Include="src\Type\TypesFuncs.cpp" />
+    <ClCompile Include="src\Yard\Yard.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Exceptions.h" />
-    <ClInclude Include="Expression.h" />
-    <ClInclude Include="Funcs.h" />
-    <ClInclude Include="Procedure.h" />
-    <ClInclude Include="ProcedureFuncs.h" />
-    <ClInclude Include="ProgramFuncs.h" />
-    <ClInclude Include="Program.h" />
-    <ClInclude Include="SpecialFuncs.h" />
-    <ClInclude Include="Types.h" />
-    <ClInclude Include="TypesFuncs.h" />
-    <ClInclude Include="Yard.h" />
+    <ClInclude Include="include\Exceptions.h" />
+    <ClInclude Include="include\Yard\Expression.h" />
+    <ClInclude Include="include\Funcs.h" />
+    <ClInclude Include="include\Procedure\Procedure.h" />
+    <ClInclude Include="include\Procedure\ProcedureFuncs.h" />
+    <ClInclude Include="include\Program\ProgramFuncs.h" />
+    <ClInclude Include="include\Program\Program.h" />
+    <ClInclude Include="include\Program\SpecialFuncs.h" />
+    <ClInclude Include="include\Type\Types.h" />
+    <ClInclude Include="include\Type\TypesFuncs.h" />
+    <ClInclude Include="include\Yard\Yard.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

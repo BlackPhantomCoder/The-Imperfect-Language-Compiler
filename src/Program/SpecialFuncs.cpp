@@ -1,4 +1,4 @@
-#include "SpecialFuncs.h"
+#include "Program/SpecialFuncs.h"
 
 #include <algorithm>
 #include <list>
@@ -6,8 +6,8 @@
 #include <functional>
 #include <iostream>
 
-#include "Yard.h"
-#include "TypesFuncs.h"
+#include "Yard/Yard.h"
+#include "Type/TypesFuncs.h"
 #include "Exceptions.h"
 using namespace std;
 

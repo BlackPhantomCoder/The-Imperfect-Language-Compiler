@@ -1,9 +1,9 @@
-#include "ProgramFuncs.h"
+#include "Program/ProgramFuncs.h"
 
 #include <algorithm>
+
 #include "Exceptions.h"
 #include "Funcs.h"
-
 using namespace std;
 
 void clean_str(string& str, const set<char>& chars) {

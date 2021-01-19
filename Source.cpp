@@ -8,13 +8,14 @@
 #include <filesystem>
 #include <map>
 
-#include "Types.h"
-#include "ProgramFuncs.h"
-#include "SpecialFuncs.h"
-#include "TypesFuncs.h"
+#include "Type/Types.h"
+#include "Type/TypesFuncs.h"
+#include "Program/ProgramFuncs.h"
+#include "Program/SpecialFuncs.h"
+#include "Procedure/ProcedureFuncs.h"
 #include "Exceptions.h"
 #include "Funcs.h"
-#include "ProcedureFuncs.h"
+
 using namespace std;
 
 //reading names of program files

@@ -3,8 +3,8 @@
 #include <deque>
 #include <map>
 
-#include "Procedure.h"
-#include "Program.h"
+#include "Procedure/Procedure.h"
+#include "Program/Program.h"
 
 //PreProcedureStepOne to PreProcedureStepTwo (with processing equations)
 PreProcedureStepTwo next_step(PreProcedureStepOne p);
