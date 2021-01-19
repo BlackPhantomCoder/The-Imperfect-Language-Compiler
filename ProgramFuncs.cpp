@@ -90,23 +90,37 @@ ListProgram process_cmds(
 	for (const auto& [str,line] : program) {
 		for (const auto& [cmd, code] : cmd_codes_sort) {
 			if (cmd_to_args.at(code) > 0) {
-				if (cmd.size() <= str.size() + 2 && cmd + "(" == str.substr(0, cmd.size() + 1)) {
+				if (cmd.size() <= str.size() + 2 && cmd == str.substr(0, cmd.size())) {
+					if (str[cmd.size()] != '(') throw ProgramException("not enough (", line);
+					if (str[str.size() - 1] != ')') throw ProgramException("not enough )", line);
+
 					auto arg = str.substr(cmd.size() + 1, str.size() - cmd.size() - 2);
 					if (count(begin(arg), end(arg), ',') + 1 != cmd_to_args.at(code))
 						throw ProgramException(cmd + ": " + string("wrong argument count"), line);
 
-					result.push_back(cmd_and_args{ code,str_to_args(str.substr(cmd.size()+1, str.size()- cmd.size() - 2)), line });
-					break;
-				}
-			}
-			else if (cmd_to_args.at(code) < 0){
-				if (cmd.size() <= str.size() + 2 && cmd + "(" == str.substr(0, cmd.size() + 1)) {
 					result.push_back({ code,str_to_args(str.substr(cmd.size() + 1, str.size() - cmd.size() - 2)), line });
 					break;
 				}
 			}
-			else
-			{
+			else if (cmd_to_args.at(code) == 0) {
+				if (cmd.size() <= str.size() + 2 && cmd == str.substr(0, cmd.size())) {
+					if (str[cmd.size()] != '(') throw ProgramException("not enough (", line);
+					if (str[str.size() - 1] != ')') throw ProgramException("not enough )", line);
+					if (cmd.size() + 2 != str.size()) throw ProgramException(cmd + ": " + string("wrong argument count"), line);
+					result.push_back({ code,str_to_args(str.substr(cmd.size() + 1, str.size() - cmd.size() - 2)), line });
+					break;
+				}
+			}
+			else if (cmd_to_args.at(code) == -1) {
+				if (cmd.size() <= str.size() + 2 && cmd == str.substr(0, cmd.size())) {
+					if (str[cmd.size()] != '(') throw ProgramException("not enough (", line);
+					if (str[str.size() - 1] != ')') throw ProgramException("not enough )", line);
+
+					result.push_back({ code,str_to_args(str.substr(cmd.size() + 1, str.size() - cmd.size() - 2)), line });
+					break;
+				}
+			}
+			else if (cmd_to_args.at(code) == -2) {
 				if (cmd.size() <= str.size() && cmd == str.substr(0, cmd.size())) {
 					result.push_back({ code,str_to_args(str.substr(cmd.size(), str.size() - cmd.size())), line });
 					break;

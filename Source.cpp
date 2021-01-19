@@ -117,9 +117,6 @@ map<size_t, PreProcedureStepTwo> step_preprocedures_second(vector<PreProcedureSt
 		}
 	}
 
-	//sort(begin(pre_procedures_one), end(pre_procedures_one),
-	//	[](const PreProcedureStepOne& lh, const PreProcedureStepOne& rh) { return lh.id < rh.id; });
-
 	map<size_t, PreProcedureStepTwo> pre_procedures_two;
 	for (const auto& p : pre_procedures_one) {
 		pre_procedures_two.insert({ p.id, next_step(p) });

@@ -21,5 +21,5 @@ public:
 class CompilerException : public CompileException
 {
 public:
-	CompilerException(const std::string& message) : CompileException(message + " compiler error") {}
+	CompilerException(const std::string& message) : CompileException(message + " --> compiler error") {}
 };

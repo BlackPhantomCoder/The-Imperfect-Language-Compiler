@@ -3,25 +3,25 @@ procedure main()
 var
 	byte r, g, b
 	byte i
-	bool finish
+	dbyte finish
 evar
-	random r, 0,255
-	random g, 0,255
-	random b, 0,255
+	random(r, 0,255)
+	random(g, 0,255)
+	random(b, 0,255)
 	
 	finish = 1
 	while(finish)
 		cset(0, r,g,b)
-		r = r / 2
-		g = g / 2 
-		b = b / 2
 		for(i, 0, 6)
 			ccopy(7 - i, 6 - i)
 		efor
-		cset(0, r,g,b)
+		r = r / 2
+		g = g / 2 
+		b = b / 2
+		finish = CR7 + CG7 + CB7 + r + g + b
+
 		ccopyall(8)
-		draw
+		draw()
 		pause(100)
-		finish = CR7%2 + CG7%2 + CB7%2 + r%2 + g%2 + b%2
 	ewhile
 }

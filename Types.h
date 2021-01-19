@@ -60,6 +60,7 @@ namespace commands {
 		ccopy = 27,
 		cswap = 28,
 		ccopyall = 29,
+		cclear = 30,
 
 
 		stop = 254,
@@ -93,6 +94,7 @@ const std::map<std::string, command> cmd_and_name =
 	{ "ccopy",command::ccopy },
 	{ "cswap",command::cswap },
 	{ "ccopyall",command::ccopyall },
+	{ "cclear",command::cclear },
 	{ "procedure_call", command::procedure_call },
 	{ "end_procedure",command::end_procedure }
 };
@@ -111,10 +113,10 @@ const std::set<std::uint8_t> cmd_codes = []() -> auto{
 	return result;
 }();
 
-//commad code with count args (-1 == not fixed)
+//commad code with count args (-1 == not fixed, -2 == whithout branches)
 const std::map<std::uint8_t, int> cmd_to_args = {
-	{command::var, 0},
-	{command::evar ,    0},
+	{command::var, -2},
+	{command::evar ,    -2},
 	{command::set ,	 2},
 	{command::swap,		 2},
 	{command::random ,	 3},
@@ -123,20 +125,21 @@ const std::map<std::uint8_t, int> cmd_to_args = {
 	{command::while_ ,	 1},
 	{command::pause,	 1},
 	{command::draw ,	 0},
-	{command::eif ,	 0},
-	{command::else_  ,	 0},
-	{command::eelse  ,	 0},
-	{command::efor ,	 0},
-	{command::ewhile ,	 0},
-	{command::bool_ ,	 0},
-	{command::byte_ ,		 0},
-	{command::dbyte_  ,	 0},
+	{command::eif ,	 -2},
+	{command::else_  ,	 -2},
+	{command::eelse  ,	 -2},
+	{command::efor ,	 -2},
+	{command::ewhile ,	 -2},
+	{command::bool_ ,	 -2},
+	{command::byte_ ,		 -2},
+	{command::dbyte_  ,	 -2},
 	{command::cset ,	 4},
 	{command::ccopy,	 2},
 	{command::cswap,		 2},
 	{command::ccopyall,		 1},
+	{command::cclear,		 0},
 	{command::procedure_call, -1},
-	{command::end_procedure,		 0}
+	{command::end_procedure,		 -2}
 };
 
 //type string with type cmd (sorted by greater)
